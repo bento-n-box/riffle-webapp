@@ -1,0 +1,10 @@
+img.riffle-header {
+  max-width: 33%;
+}
+img.status-bar {
+  max-width: 320px;
+}
+div.tab-bar {
+  height: 44px;
+  background-color: #212534;
+}
