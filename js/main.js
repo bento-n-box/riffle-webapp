@@ -1,6 +1,6 @@
 var readAudio = (function(){
-    var BASE_URL = '127.0.0.1:8080/';
-    var Local_BASE_URL = '127.0.0.1:8080/';
+    var BASE_URL = 'file:///127.0.0.1:8080/';
+    var Local_BASE_URL = 'file:///127.0.0.1:8080/';
 
     var self = {
 
@@ -94,18 +94,13 @@ var readAudio = (function(){
           //$("audio#RecordingPlayer_speaking").get()[0].load();
             var xhr = new XMLHttpRequest();
             filename = "abc";
-            xhr.open('POST', BASE_URL + "/Applications/MAMP/htdocs/audio-experience?file=" + filename, true);
+            xhr.open('POST', "upload.php", true);
             xhr.onload = function (e) {
                 e.stopImmediatePropagation();
                 var result = e.target.result;
             };
             xhr.onreadystatechange = function () {
               if (xhr.readyState == 4 && xhr.status == 200) {
-                $("#start").html("Uploaded succesfully on server....");
-                $("#overlay").removeClass("OverlayEffect");
-                $("#overlay").css("height", "0px");
-                $("#modalMsg").removeClass("ShowModal");
-                $("#modalMsg").addClass("HideModal");
                 fileAndFolderName = xhr.responseText;
                 var splitFileAndFolderName = fileAndFolderName.split("|");
                 UserFolder = splitFileAndFolderName[1];
@@ -115,7 +110,7 @@ var readAudio = (function(){
                 $("#play").css("display", "");
                 $("#player_audio").css("display", "");
                 $("#player_src").attr("src", generateUrl);
-                $("#player_audio").get()[0].load();
+                //$("#player_audio").get()[0].load();
 
                 //var generateUrl = SOUND_URL + "/" + UserFolder + "/" + splitFileAndFolderName[0];
 
