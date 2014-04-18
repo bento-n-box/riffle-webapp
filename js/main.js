@@ -1,4 +1,7 @@
 var readAudio = (function(){
+    var BASE_URL = '127.0.0.1:8080/';
+    var Local_BASE_URL = '127.0.0.1:8080/';
+
     var self = {
 
       init: function (){
@@ -27,7 +30,7 @@ var readAudio = (function(){
       startUserMedia: function(stream) {
         console.log('startmedia');
         var input = audio_context.createMediaStreamSource(stream);
-        input.connect(audio_context.destination);
+        //input.connect(audio_context.destination);
         self.recorder = new Recorder(input);
       },
 
@@ -49,6 +52,7 @@ var readAudio = (function(){
 
         // create WAV download link using audio data blob
         self.createDownloadLink();
+        self.uploadRecordedAudio();
 
         //Recorder.clear();
       },
@@ -83,10 +87,48 @@ var readAudio = (function(){
         //self.recorder && self.recorder.getBuffer([self.audioData]);
       },
 
-      audioData: function(data){
-        console.log('ran', data);
+      uploadRecordedAudio: function() {
+        self.recorder.exportWAV(function (blob) {
+          var url = (window.URL || window.webkitURL).createObjectURL(blob);	// Set the recorded url to the player so that recorded sound can be heard by Gourav on 03/20/2014
+          $("audio").attr("src", url);
+          //$("audio#RecordingPlayer_speaking").get()[0].load();
+            var xhr = new XMLHttpRequest();
+            filename = "abc";
+            xhr.open('POST', BASE_URL + "/Applications/MAMP/htdocs/audio-experience?file=" + filename, true);
+            xhr.onload = function (e) {
+                e.stopImmediatePropagation();
+                var result = e.target.result;
+            };
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                $("#start").html("Uploaded succesfully on server....");
+                $("#overlay").removeClass("OverlayEffect");
+                $("#overlay").css("height", "0px");
+                $("#modalMsg").removeClass("ShowModal");
+                $("#modalMsg").addClass("HideModal");
+                fileAndFolderName = xhr.responseText;
+                var splitFileAndFolderName = fileAndFolderName.split("|");
+                UserFolder = splitFileAndFolderName[1];
 
-      },
+                var generateUrl = Local_BASE_URL + "/" +  splitFileAndFolderName[0];
+                $("#filename").val(generateUrl);
+                $("#play").css("display", "");
+                $("#player_audio").css("display", "");
+                $("#player_src").attr("src", generateUrl);
+                $("#player_audio").get()[0].load();
+
+                //var generateUrl = SOUND_URL + "/" + UserFolder + "/" + splitFileAndFolderName[0];
+
+                }
+            }
+            xhr.send(blob);
+          });
+        },
+
+      // audioData: function(data){
+      //   console.log('ran', data);
+      //
+      // },
 
       testAudioApi: function(){
         try {
