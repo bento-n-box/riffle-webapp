@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Riff upload test
+  form(action="/riff-upload", method="post", enctype="multipart/form-data")
+    input(type="file", name="audio")
+    input(type="submit")

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 audio files
+  each riff, i in riffs
+    p audio
+    audio(src="#{riffs[i].path}")

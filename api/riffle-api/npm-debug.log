@@ -1,0 +1,78 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.12/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'gridfs',
+1 verbose cli   '--save' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/package.json
+5 warn package.json application-name@0.0.1 No repository field.
+6 warn package.json application-name@0.0.1 No readme data.
+7 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/binaryjs/package.json
+8 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/connect-mongo/package.json
+9 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/express/package.json
+10 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/jade/package.json
+11 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/logfmt/package.json
+12 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/mongo-connect/package.json
+13 verbose read json /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/node_modules/mongoose/package.json
+14 verbose from cache /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api/package.json
+15 verbose readDependencies using package.json deps
+16 verbose cache add [ 'gridfs', null ]
+17 verbose cache add name=undefined spec="gridfs" args=["gridfs",null]
+18 verbose parsed url { protocol: null,
+18 verbose parsed url   slashes: null,
+18 verbose parsed url   auth: null,
+18 verbose parsed url   host: null,
+18 verbose parsed url   port: null,
+18 verbose parsed url   hostname: null,
+18 verbose parsed url   hash: null,
+18 verbose parsed url   search: null,
+18 verbose parsed url   query: null,
+18 verbose parsed url   pathname: 'gridfs',
+18 verbose parsed url   path: 'gridfs',
+18 verbose parsed url   href: 'gridfs' }
+19 silly lockFile 42c59ce1-gridfs gridfs
+20 verbose lock gridfs /Users/bentonrr/.npm/42c59ce1-gridfs.lock
+21 silly lockFile 42c59ce1-gridfs gridfs
+22 silly lockFile 42c59ce1-gridfs gridfs
+23 verbose addNamed [ 'gridfs', '' ]
+24 verbose addNamed [ null, '' ]
+25 silly lockFile d6ba81b9-gridfs gridfs@
+26 verbose lock gridfs@ /Users/bentonrr/.npm/d6ba81b9-gridfs.lock
+27 silly addNameRange { name: 'gridfs', range: '', hasData: false }
+28 verbose url raw gridfs
+29 verbose url resolving [ 'https://registry.npmjs.org/', './gridfs' ]
+30 verbose url resolved https://registry.npmjs.org/gridfs
+31 info trying registry request attempt 1 at 09:21:06
+32 http GET https://registry.npmjs.org/gridfs
+33 http 404 https://registry.npmjs.org/gridfs
+34 silly registry.get cb [ 404,
+34 silly registry.get   { date: 'Fri, 18 Apr 2014 15:21:04 GMT',
+34 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+34 silly registry.get     'content-type': 'application/json',
+34 silly registry.get     via: '1.1 varnish',
+34 silly registry.get     'cache-control': 'max-age=0',
+34 silly registry.get     'content-length': '52',
+34 silly registry.get     'accept-ranges': 'bytes',
+34 silly registry.get     age: '0',
+34 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-c48-CHI',
+34 silly registry.get     'x-cache': 'MISS, MISS',
+34 silly registry.get     'x-cache-hits': '0, 0',
+34 silly registry.get     'x-timer': 'S1397834464.722451687,VS0,VS6,VE97,VE109',
+34 silly registry.get     'keep-alive': 'timeout=10, max=50',
+34 silly registry.get     connection: 'Keep-Alive' } ]
+35 silly lockFile d6ba81b9-gridfs gridfs@
+36 silly lockFile d6ba81b9-gridfs gridfs@
+37 error 404 'gridfs' is not in the npm registry.
+37 error 404 You should bug the author to publish it
+37 error 404
+37 error 404 Note that you can also install from a
+37 error 404 tarball, folder, or http url, or git url.
+38 error System Darwin 13.0.0
+39 error command "/usr/local/Cellar/node/0.10.12/bin/node" "/usr/local/bin/npm" "install" "gridfs" "--save"
+40 error cwd /Users/bentonrr/Development/SandBox/riffle-webapp/api/riffle-api
+41 error node -v v0.10.12
+42 error npm -v 1.2.32
+43 error code E404
+44 verbose exit [ 1, true ]
